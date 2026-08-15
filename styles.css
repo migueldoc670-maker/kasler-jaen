@@ -137,7 +137,9 @@ section[id] { scroll-margin-top: var(--header-h); }
 /* ================= Trust bar ================= */
 .trust-bar { background: var(--brass); color: #1f1608; padding: 16px 0; }
 .trust-bar .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 34px; }
-.trust-bar span { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 8px; letter-spacing: 0.03em; }
+.trust-bar span, .trust-bar a { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 8px; letter-spacing: 0.03em; }
+.trust-bar a { text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.25s ease; }
+.trust-bar a:hover { opacity: 0.75; }
 .trust-bar svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* ================= Marquee ================= */
@@ -170,6 +172,16 @@ section[id] { scroll-margin-top: var(--header-h); }
 .gal-item:hover img { transform: scale(1.06); }
 .gal-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(36,17,13,0.65) 100%); pointer-events: none; }
 .gal-item .tag { position: absolute; left: 18px; bottom: 16px; z-index: 1; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: #fff; }
+
+/* ================= La Carta ================= */
+.carta { padding: var(--pad) 0; background: var(--cream); }
+.carta-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 60px; }
+.carta-group h3 { font-size: 1.5rem; font-style: italic; color: var(--brass); margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.carta-item { display: flex; align-items: baseline; gap: 10px; padding: 12px 0; border-bottom: 1px dotted var(--line); }
+.carta-item:last-child { border-bottom: none; }
+.carta-item .name { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); }
+.carta-item .desc { font-size: 0.85rem; color: var(--ink-faint); margin-top: 2px; }
+.carta-note { margin-top: 40px; text-align: center; color: var(--ink-dim); font-size: 0.92rem; font-style: italic; font-family: var(--font-display); }
 
 /* ================= Reserva ================= */
 .reserva { padding: var(--pad) 0; background: var(--cream-alt); }
@@ -299,5 +311,5 @@ section[id] { scroll-margin-top: var(--header-h); }
   .footer-top { flex-direction: column; }
   .footer-links { gap: 30px; }
   .trust-bar .container { gap: 8px 18px; }
-  .trust-bar span { font-size: 0.72rem; }
+  .trust-bar span, .trust-bar a { font-size: 0.72rem; }
 }
