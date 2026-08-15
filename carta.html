@@ -55,88 +55,98 @@
   <div class="container">
     <p class="eyebrow on-dark">Carta completa</p>
     <h1 style="font-family:var(--font-display); font-style:italic; color:var(--on-dark); font-size:clamp(2.4rem,5vw,3.6rem);">Comidas, vinos<br>y algo más.</h1>
-    <div class="carta-subnav">
-      <a href="#comidas">Comidas y Cenas</a>
-      <a href="#vinos">Nuestros Vinos</a>
-      <a href="#cervezas">Nuestras Cervezas</a>
-      <a href="#singluten">Sin Gluten</a>
+    <div class="carta-tabs" id="carta-tabs">
+      <button type="button" class="carta-tab-btn" data-target="comidas">Comidas y Cenas</button>
+      <button type="button" class="carta-tab-btn" data-target="vinos">Nuestros Vinos</button>
+      <button type="button" class="carta-tab-btn" data-target="cervezas">Nuestras Cervezas</button>
+      <button type="button" class="carta-tab-btn" data-target="singluten">Sin Gluten</button>
     </div>
   </div>
 </section>
 
 <!-- ============ Comidas y Cenas ============ -->
-<section class="carta-full" id="comidas">
+<section class="carta-full carta-panel" id="comidas" data-panel="comidas">
   <div class="container">
 
-    <div class="carta-full-cat">
+    <div class="carta-subtabs">
+      <button type="button" class="carta-subtab-btn" data-cat="entrantes">Entrantes</button>
+      <button type="button" class="carta-subtab-btn" data-cat="capricho">Date un capricho</button>
+      <button type="button" class="carta-subtab-btn" data-cat="verde">Un poco de verde</button>
+      <button type="button" class="carta-subtab-btn" data-cat="compartir">Para Compartir</button>
+      <button type="button" class="carta-subtab-btn" data-cat="clasicos">Nuestros Clásicos</button>
+      <button type="button" class="carta-subtab-btn" data-cat="irte-sin">Como irte sin...</button>
+      <button type="button" class="carta-subtab-btn" data-cat="golosos">Para los más golosos</button>
+    </div>
+
+    <div class="carta-full-cat" data-cat="entrantes">
       <h3>Entrantes</h3>
       <p class="cat-note">Estos platos se sirven por unidades</p>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Takostilla <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">11 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Tako de Gamba al Ajillo <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">12 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Croqueta de Codillo</div></div><div class="price">3,50 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Bao de Chipirón <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">12 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Anchoa del Cantábrico</div></div><div class="price">4 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/takostilla.jpg?v=20260816" alt="Takostilla"></div><div class="info"><div class="name">Takostilla <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">11 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/tako-gamba.jpg?v=20260816" alt="Tako de Gamba al Ajillo"></div><div class="info"><div class="name">Tako de Gamba al Ajillo <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">12 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/croqueta-codillo.jpg?v=20260816" alt="Croqueta de Codillo"></div><div class="info"><div class="name">Croqueta de Codillo</div></div><div class="price">3,50 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/bao-chipiron.jpg?v=20260816" alt="Bao de Chipirón"></div><div class="info"><div class="name">Bao de Chipirón <span class="desc" style="display:inline;">(2 unidades)</span></div></div><div class="price">12 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/anchoa.jpg?v=20260816" alt="Anchoa del Cantábrico"></div><div class="info"><div class="name">Anchoa del Cantábrico</div></div><div class="price">4 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="capricho">
       <h3>Date un capricho</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Nuestra Rusa</div><div class="desc">Patatas, ventresca de atún y AOVE</div></div><div class="price">15 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Yogurt de foie</div><div class="desc">Foie cremoso con mermelada de fresa para untar en brioche</div></div><div class="price">15 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Focaccia de presa</div><div class="desc">Presa ibérica, cebolla caramelizada y queso de cabra</div></div><div class="price">12 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Hamburguesa de vaca a la parrilla</div></div><div class="price">17 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/nuestra-rusa.jpg?v=20260816" alt="Nuestra Rusa"></div><div class="info"><div class="name">Nuestra Rusa</div><div class="desc">Patatas, ventresca de atún y AOVE</div></div><div class="price">15 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/yogurt-foie.jpg?v=20260816" alt="Yogurt de foie"></div><div class="info"><div class="name">Yogurt de foie</div><div class="desc">Foie cremoso con mermelada de fresa para untar en brioche</div></div><div class="price">15 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/focaccia.jpg?v=20260816" alt="Focaccia de presa"></div><div class="info"><div class="name">Focaccia de presa</div><div class="desc">Presa ibérica, cebolla caramelizada y queso de cabra</div></div><div class="price">12 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/hamburguesa.jpg?v=20260816" alt="Hamburguesa de vaca a la parrilla"></div><div class="info"><div class="name">Hamburguesa de vaca a la parrilla</div></div><div class="price">17 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="verde">
       <h3>Un poco de verde</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Cazuelita de Bravas <span class="tag-star" style="background:var(--ink);">Picante</span></div></div><div class="price">14 €</div></div>
-        <div class="carta-full-row"><div class="thumb"><img src="assets/img/alcachofas.jpg?v=20260816" alt="Alcachofas y crema de Calabaza"></div><div class="info"><div class="name">Alcachofas y crema de Calabaza <span class="tag-veg">Vegano</span></div></div><div class="price">15 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Guacamole con Ignacios</div><div class="desc">En mortero con pepitas de pollo crujiente</div></div><div class="price">19 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Ensalada de Salmón, Gambas y Gulas</div></div><div class="price">13 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Ensalada de Pollo y Parmesano a la Mostaza</div></div><div class="price">12 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/bravas.jpg?v=20260816" alt="Cazuelita de Bravas"></div><div class="info"><div class="name">Cazuelita de Bravas <span class="tag-star" style="background:var(--ink);">Picante</span></div></div><div class="price">14 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/alcachofas2.jpg?v=20260816" alt="Alcachofas y crema de Calabaza"></div><div class="info"><div class="name">Alcachofas y crema de Calabaza <span class="tag-veg">Vegano</span></div></div><div class="price">15 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/guacamole.jpg?v=20260816" alt="Guacamole con Ignacios"></div><div class="info"><div class="name">Guacamole con Ignacios</div><div class="desc">En mortero con pepitas de pollo crujiente</div></div><div class="price">19 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/ensalada-salmon.jpg?v=20260816" alt="Ensalada de Salmón, Gambas y Gulas"></div><div class="info"><div class="name">Ensalada de Salmón, Gambas y Gulas</div></div><div class="price">13 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/ensalada-pollo.jpg?v=20260816" alt="Ensalada de Pollo y Parmesano a la Mostaza"></div><div class="info"><div class="name">Ensalada de Pollo y Parmesano a la Mostaza</div></div><div class="price">12 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="compartir">
       <h3>Para Compartir</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Risotto de Hongos y Foie</div></div><div class="price">14 €</div></div>
-        <div class="carta-full-row"><div class="thumb"><img src="assets/img/orza-pote.jpg?v=20260816" alt="Lomo de Orza con Huevos Rotos"></div><div class="info"><div class="name">Lomo de Orza con Huevos Rotos</div></div><div class="price">15 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/risotto.jpg?v=20260816" alt="Risotto de Hongos y Foie"></div><div class="info"><div class="name">Risotto de Hongos y Foie</div></div><div class="price">14 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/lomo-orza2.jpg?v=20260816" alt="Lomo de Orza con Huevos Rotos"></div><div class="info"><div class="name">Lomo de Orza con Huevos Rotos</div></div><div class="price">15 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="clasicos">
       <h3>Nuestros Clásicos</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Mousaka de Berenjenas</div></div><div class="price">18 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Codillo Braseado <span class="tag-star">Plato estrella</span></div><div class="desc">23 años siguiendo la misma receta · Recomendado para 2 personas</div></div><div class="price">26 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Revuelto de Bacalao con Patatas Paja</div></div><div class="price">14 €</div></div>
-        <div class="carta-full-row"><div class="thumb"><img src="assets/img/schnitzel.jpg?v=20260816" alt="Schnitzel"></div><div class="info"><div class="name">Schnitzel</div><div class="desc">Rebozado crujiente, huevos para romper y crema de trufa · Recomendado para 2</div></div><div class="price">23 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Canelones de Pato gratinados con Foie</div></div><div class="price">23 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Surtido de Salchichas Kasler</div><div class="desc">Recomendado para 2 personas</div></div><div class="price">26 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/mousaka.jpg?v=20260816" alt="Mousaka de Berenjenas"></div><div class="info"><div class="name">Mousaka de Berenjenas</div></div><div class="price">18 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/codillo.jpg?v=20260816" alt="Codillo Braseado"></div><div class="info"><div class="name">Codillo Braseado <span class="tag-star">Plato estrella</span></div><div class="desc">23 años siguiendo la misma receta · Recomendado para 2 personas</div></div><div class="price">26 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/revuelto-bacalao.jpg?v=20260816" alt="Revuelto de Bacalao con Patatas Paja"></div><div class="info"><div class="name">Revuelto de Bacalao con Patatas Paja</div></div><div class="price">14 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/schnitzel2.jpg?v=20260816" alt="Schnitzel"></div><div class="info"><div class="name">Schnitzel</div><div class="desc">Rebozado crujiente, huevos para romper y crema de trufa · Recomendado para 2</div></div><div class="price">23 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/canelones.jpg?v=20260816" alt="Canelones de Pato gratinados con Foie"></div><div class="info"><div class="name">Canelones de Pato gratinados con Foie</div></div><div class="price">23 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/salchichas.jpg?v=20260816" alt="Surtido de Salchichas Kasler"></div><div class="info"><div class="name">Surtido de Salchichas Kasler</div><div class="desc">Recomendado para 2 personas</div></div><div class="price">26 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="irte-sin">
       <h3>Como irte sin...</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Lomo de Bacalao Gratinado</div></div><div class="price">26 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Tataki de Atún</div></div><div class="price">25 €</div></div>
-        <div class="carta-full-row"><div class="thumb"><img src="assets/img/entrecot.jpg?v=20260816" alt="Entrecot de Vaca a la Parrilla"></div><div class="info"><div class="name">Entrecot de Vaca a la Parrilla</div></div><div class="price">32 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Presa de Cerdo Ibérico a la Brasa</div></div><div class="price">26 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/bacalao-gratinado.jpg?v=20260816" alt="Lomo de Bacalao Gratinado"></div><div class="info"><div class="name">Lomo de Bacalao Gratinado</div></div><div class="price">26 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/tataki.jpg?v=20260816" alt="Tataki de Atún"></div><div class="info"><div class="name">Tataki de Atún</div></div><div class="price">25 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/entrecot2.jpg?v=20260816" alt="Entrecot de Vaca a la Parrilla"></div><div class="info"><div class="name">Entrecot de Vaca a la Parrilla</div></div><div class="price">32 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/presa-iberico.jpg?v=20260816" alt="Presa de Cerdo Ibérico a la Brasa"></div><div class="info"><div class="name">Presa de Cerdo Ibérico a la Brasa</div></div><div class="price">26 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="golosos">
       <h3>Para los más golosos</h3>
       <div class="carta-full-list">
-        <div class="carta-full-row"><div class="thumb"><img src="assets/img/brownie.jpg?v=20260816" alt="Brownie de Kinder"></div><div class="info"><div class="name">Brownie de Kinder</div></div><div class="price">6,9 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Cheesekasler</div></div><div class="price">6,9 €</div></div>
-        <div class="carta-full-row no-img"><div class="info"><div class="name">Apfelstrudel</div></div><div class="price">6,5 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/brownie2.jpg?v=20260816" alt="Brownie de Kinder"></div><div class="info"><div class="name">Brownie de Kinder</div></div><div class="price">6,9 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/cheesekasler.jpg?v=20260816" alt="Cheesekasler"></div><div class="info"><div class="name">Cheesekasler</div></div><div class="price">6,9 €</div></div>
+        <div class="carta-full-row"><div class="thumb"><img src="assets/img/apfelstrudel.jpg?v=20260816" alt="Apfelstrudel"></div><div class="info"><div class="name">Apfelstrudel</div></div><div class="price">6,5 €</div></div>
       </div>
     </div>
 
@@ -144,14 +154,21 @@
 </section>
 
 <!-- ============ Vinos ============ -->
-<section class="carta-full" id="vinos" style="background:var(--cream-alt);">
+<section class="carta-full carta-panel" id="vinos" data-panel="vinos" style="background:var(--cream-alt);">
   <div class="container">
     <div class="section-head" data-reveal>
       <p class="eyebrow">Nuestros Vinos</p>
       <h2>La bodega de Kasler.</h2>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-subtabs">
+      <button type="button" class="carta-subtab-btn" data-cat="blancos">Vinos Blancos</button>
+      <button type="button" class="carta-subtab-btn" data-cat="rosado">Rosado</button>
+      <button type="button" class="carta-subtab-btn" data-cat="tintos">Vinos Tintos</button>
+      <button type="button" class="carta-subtab-btn" data-cat="copeo">Vinos de Copeo</button>
+    </div>
+
+    <div class="carta-full-cat" data-cat="blancos">
       <h3>Vinos Blancos</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Don Pedro Gil <span class="desc" style="display:inline;">(Semidulce)</span></div><div class="desc">Torreperogil, Jaén — Pedro Ximénez</div></div><div class="price">16 €</div></div>
@@ -159,14 +176,14 @@
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="rosado">
       <h3>Rosado</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">La Sastrería Rosado</div><div class="desc">D.O.P. Cariñena — Garnacha</div></div><div class="price">16 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="tintos">
       <h3>Vinos Tintos</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">La Sastrería</div><div class="desc">D.O.P. Cariñena — Garnacha</div></div><div class="price">16 €</div></div>
@@ -188,7 +205,7 @@
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="copeo">
       <h3>Vinos de Copeo</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">La Sastrería Cariñena</div></div><div class="price">3 €</div></div>
@@ -201,14 +218,19 @@
 </section>
 
 <!-- ============ Cervezas ============ -->
-<section class="carta-full" id="cervezas">
+<section class="carta-full carta-panel" id="cervezas" data-panel="cervezas">
   <div class="container">
     <div class="section-head" data-reveal>
       <p class="eyebrow">Nuestras Cervezas</p>
       <h2>Para acompañar cualquier plato.</h2>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-subtabs">
+      <button type="button" class="carta-subtab-btn" data-cat="mahou">Cervezas Mahou</button>
+      <button type="button" class="carta-subtab-btn" data-cat="especiales">Cervezas Especiales</button>
+    </div>
+
+    <div class="carta-full-cat" data-cat="mahou">
       <h3>Cervezas Mahou</h3>
       <p class="cat-note">Mahou 5 Estrellas · Maestra Doble Lúpulo · Mahou 0,0 Tostada · Mahou Sin Filtrar · Mahou 5 Estrellas Sin Gluten</p>
       <div class="carta-full-list">
@@ -216,7 +238,7 @@
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="especiales">
       <h3>Cervezas Especiales</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Alhambra Reserva 1925</div></div><div class="price">3,30 €</div></div>
@@ -231,21 +253,29 @@
 </section>
 
 <!-- ============ Sin Gluten ============ -->
-<section class="carta-full" id="singluten" style="background:var(--cream-alt); padding-bottom:130px;">
+<section class="carta-full carta-panel" id="singluten" data-panel="singluten" style="background:var(--cream-alt); padding-bottom:130px;">
   <div class="container">
     <div class="section-head" data-reveal>
       <p class="eyebrow">Sin Gluten</p>
       <h2>Opciones aptas para celíacos.</h2>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-subtabs">
+      <button type="button" class="carta-subtab-btn" data-cat="bocados">Nuestros Bocados</button>
+      <button type="button" class="carta-subtab-btn" data-cat="capricho-sg">Date un capricho</button>
+      <button type="button" class="carta-subtab-btn" data-cat="clasicos-sg">Nuestros Clásicos</button>
+      <button type="button" class="carta-subtab-btn" data-cat="compartir-sg">Para Compartir</button>
+      <button type="button" class="carta-subtab-btn" data-cat="verde-sg">Verde que te quiero verde</button>
+    </div>
+
+    <div class="carta-full-cat" data-cat="bocados">
       <h3>Nuestros Bocados</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Anchoa del Cantábrico sobre Queso Levasa</div></div><div class="price">4 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="capricho-sg">
       <h3>Date un capricho</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Entrecot a la Parrilla</div></div><div class="price">26 €</div></div>
@@ -254,7 +284,7 @@
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="clasicos-sg">
       <h3>Nuestros Clásicos</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Codillo Braseado <span class="tag-star">Plato estrella</span></div><div class="desc">Recomendado para 2 personas · 22 años siguiendo la misma receta</div></div><div class="price">26 €</div></div>
@@ -263,14 +293,14 @@
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="compartir-sg">
       <h3>Para Compartir</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Lomo de Orza con Huevos Rotos</div></div><div class="price">18 €</div></div>
       </div>
     </div>
 
-    <div class="carta-full-cat">
+    <div class="carta-full-cat" data-cat="verde-sg">
       <h3>Verde que te quiero verde</h3>
       <div class="carta-full-list">
         <div class="carta-full-row no-img"><div class="info"><div class="name">Cazuelita de Bravas</div></div><div class="price">10 €</div></div>

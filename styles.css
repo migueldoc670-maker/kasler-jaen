@@ -190,7 +190,22 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 /* ================= Carta completa (carta.html) ================= */
 .carta-full { padding: var(--pad) 0 60px; background: var(--cream); }
-.carta-full-cat { margin-bottom: 64px; }
+
+.carta-panel { display: none; }
+.carta-panel.is-active { display: block; }
+
+.carta-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line-on-dark); }
+.carta-tab-btn { font-family: var(--font-body); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-dark-dim); background: transparent; border: 1px solid var(--line-on-dark); padding: 10px 20px; border-radius: 100px; cursor: pointer; transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease; }
+.carta-tab-btn:hover { color: var(--brass-bright); border-color: var(--brass-bright); }
+.carta-tab-btn.is-active { color: var(--wine); background: var(--brass-bright); border-color: var(--brass-bright); }
+
+.carta-subtabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.carta-subtab-btn { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.03em; color: var(--ink-faint); background: transparent; border: 1px solid var(--line); padding: 9px 18px; border-radius: 100px; cursor: pointer; transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease; }
+.carta-subtab-btn:hover { color: var(--brass); border-color: var(--brass); }
+.carta-subtab-btn.is-active { color: #fff; background: var(--brass); border-color: var(--brass); }
+
+.carta-full-cat { display: none; margin-bottom: 0; }
+.carta-full-cat.is-active { display: block; }
 .carta-full-cat h3 { font-size: 1.7rem; font-style: italic; color: var(--brass); margin-bottom: 8px; }
 .carta-full-cat .cat-note { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 26px; }
 .carta-full-list { display: flex; flex-direction: column; }
