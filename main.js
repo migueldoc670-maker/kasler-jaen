@@ -2,6 +2,10 @@
   'use strict';
 
   var RESERVA_EMAIL = 'kaslerjaen@gmail.com';
+  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  var DIAS_SEMANA_INICIO_LUNES = 1;
+  var resvState = { guests: 2, date: null, dateLabel: '', time: '' };
+  var calView = { year: 0, month: 0 };
 
   function safe(fn, name) {
     try { fn(); } catch (e) { console.warn('[Kasler]', name, 'failed:', e); }
@@ -136,6 +140,129 @@
     }
   }
 
+  function personIconSVG() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>';
+  }
+
+  function initGuestIcons() {
+    var wrap = document.getElementById('guest-icons');
+    var countEl = document.getElementById('guest-count');
+    if (!wrap || !countEl) return;
+    wrap.innerHTML = '';
+    for (var n = 1; n <= 6; n++) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'guest-icon' + (n === resvState.guests ? ' is-active' : '');
+      btn.setAttribute('data-n', n);
+      btn.innerHTML = personIconSVG() + '<span>' + n + '</span>';
+      btn.addEventListener('click', function () {
+        resvState.guests = parseInt(this.getAttribute('data-n'), 10);
+        countEl.textContent = resvState.guests;
+        wrap.querySelectorAll('.guest-icon').forEach(function (b) {
+          b.classList.toggle('is-active', parseInt(b.getAttribute('data-n'), 10) <= resvState.guests);
+        });
+      });
+      wrap.appendChild(btn);
+    }
+    countEl.textContent = resvState.guests;
+  }
+
+  function renderCalendar() {
+    var label = document.getElementById('cal-label');
+    var grid = document.getElementById('cal-grid');
+    if (!label || !grid) return;
+    label.textContent = MESES[calView.month] + ' · ' + calView.year;
+    grid.innerHTML = '';
+
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var firstOfMonth = new Date(calView.year, calView.month, 1);
+    var startOffset = (firstOfMonth.getDay() + 6) % 7; // lunes = 0
+    var daysInMonth = new Date(calView.year, calView.month + 1, 0).getDate();
+    var daysInPrevMonth = new Date(calView.year, calView.month, 0).getDate();
+
+    for (var i = 0; i < startOffset; i++) {
+      var prevDay = daysInPrevMonth - startOffset + i + 1;
+      grid.appendChild(makeDayCell(prevDay, true, false, null));
+    }
+    for (var d = 1; d <= daysInMonth; d++) {
+      var cellDate = new Date(calView.year, calView.month, d);
+      var disabled = cellDate < today;
+      grid.appendChild(makeDayCell(d, false, disabled, cellDate));
+    }
+  }
+
+  function makeDayCell(num, muted, disabled, dateObj) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = num;
+    btn.className = 'cal-day' + (muted ? ' is-muted' : '') + (disabled ? ' is-disabled' : '');
+    if (dateObj) {
+      var iso = dateObj.getFullYear() + '-' + String(dateObj.getMonth() + 1).padStart(2, '0') + '-' + String(dateObj.getDate()).padStart(2, '0');
+      if (resvState.date === iso) btn.classList.add('is-selected');
+      btn.addEventListener('click', function () {
+        resvState.date = iso;
+        resvState.dateLabel = num + ' de ' + MESES[calView.month] + ' de ' + calView.year;
+        document.querySelectorAll('.cal-day').forEach(function (c) { c.classList.remove('is-selected'); });
+        btn.classList.add('is-selected');
+      });
+    }
+    return btn;
+  }
+
+  function initCalendar() {
+    var grid = document.getElementById('cal-grid');
+    if (!grid) return;
+    var now = new Date();
+    calView.year = now.getFullYear();
+    calView.month = now.getMonth();
+    renderCalendar();
+
+    var prevBtn = document.getElementById('cal-prev');
+    var nextBtn = document.getElementById('cal-next');
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      var now2 = new Date();
+      if (calView.year === now2.getFullYear() && calView.month === now2.getMonth()) return;
+      calView.month--; if (calView.month < 0) { calView.month = 11; calView.year--; }
+      renderCalendar();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      calView.month++; if (calView.month > 11) { calView.month = 0; calView.year++; }
+      renderCalendar();
+    });
+  }
+
+  function initTimeSlots() {
+    var comida = document.getElementById('slots-comida');
+    var cena = document.getElementById('slots-cena');
+    if (!comida || !cena) return;
+    var comidaHoras = ['13:00', '13:30', '14:00', '14:30', '15:00', '15:30'];
+    var cenaHoras = ['20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
+
+    function fill(container, horas) {
+      horas.forEach(function (h) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'time-slot';
+        btn.textContent = h;
+        btn.addEventListener('click', function () {
+          resvState.time = h;
+          document.querySelectorAll('.time-slot').forEach(function (s) { s.classList.remove('is-selected'); });
+          btn.classList.add('is-selected');
+        });
+        container.appendChild(btn);
+      });
+    }
+    fill(comida, comidaHoras);
+    fill(cena, cenaHoras);
+  }
+
+  function initResvWidget() {
+    if (!document.getElementById('guest-icons')) return;
+    initGuestIcons();
+    initCalendar();
+    initTimeSlots();
+  }
+
   function buildReservaEmail(data) {
     var subject = 'Reserva de mesa — ' + data.nombre;
     var lines = [
@@ -159,15 +286,19 @@
       e.preventDefault();
       var zonaInput = form.querySelector('input[name="zona"]:checked');
       var data = {
-        fecha: form.fecha.value,
-        hora: form.hora.value,
-        comensales: form.comensales.value,
+        fecha: resvState.dateLabel,
+        hora: resvState.time,
+        comensales: resvState.guests + (resvState.guests === 1 ? ' persona' : ' personas'),
         zona: zonaInput ? zonaInput.value : 'Comedor',
         nombre: form.nombre.value.trim(),
         telefono: form.telefono.value.trim(),
         alergias: form.alergias.value.trim()
       };
-      if (!data.fecha || !data.hora || !data.nombre || !data.telefono) {
+      if (!data.fecha || !data.hora) {
+        alert('Por favor, selecciona una fecha y una hora en el calendario.');
+        return;
+      }
+      if (!data.nombre || !data.telefono) {
         form.reportValidity();
         return;
       }
@@ -185,6 +316,7 @@
     safe(initActiveNav, 'initActiveNav');
     safe(initReveal, 'initReveal');
     safe(initHeroSplit, 'initHeroSplit');
+    safe(initResvWidget, 'initResvWidget');
     safe(initReservaForm, 'initReservaForm');
     safe(initScrollAnimations, 'initScrollAnimations');
   });
