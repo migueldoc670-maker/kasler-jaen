@@ -379,6 +379,10 @@ section[id] { scroll-margin-top: var(--header-h); }
   .contacto .container { grid-template-columns: 1fr; }
   .opiniones .section-head { flex-direction: column; align-items: flex-start; }
   .big-rating { text-align: left; }
+  .carta-teaser { grid-template-columns: repeat(2, 1fr); }
+  .resv-widget { grid-template-columns: 1fr; }
+  .resv-lower { grid-template-columns: 1fr; }
+  .resv-contact .form-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   :root { --pad: 64px; }
@@ -392,4 +396,6 @@ section[id] { scroll-margin-top: var(--header-h); }
   .footer-links { gap: 30px; }
   .trust-bar .container { gap: 8px 18px; }
   .trust-bar span, .trust-bar a { font-size: 0.72rem; }
+  .carta-teaser { grid-template-columns: 1fr; }
+  .time-cols { grid-template-columns: 1fr; }
 }
